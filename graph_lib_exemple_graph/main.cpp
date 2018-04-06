@@ -11,27 +11,27 @@ int main()
 {
     ///INITIALISATION ALLEGRO
 
-     /// A appeler en 1er avant d'instancier des objets graphiques etc...
+    /// A appeler en 1er avant d'instancier des objets graphiques etc...
     grman::init();
     // declaration bitmaps
 
-BITMAP *page, *menuf, *menuc;
+    BITMAP *page, *menuf, *menuc;
 
 
-  /*  set_color_depth(desktop_color_depth());
-    if (set_gfx_mode(GFX_AUTODETECT_FULLSCREEN,1024,768,0,0)!=0)
-    {
-        allegro_message("prb gfx mode");
-        allegro_exit();
-        exit(EXIT_FAILURE);
-    }
-    */
+    /*  set_color_depth(desktop_color_depth());
+      if (set_gfx_mode(GFX_AUTODETECT_FULLSCREEN,1024,768,0,0)!=0)
+      {
+          allegro_message("prb gfx mode");
+          allegro_exit();
+          exit(EXIT_FAILURE);
+      }
+      */
 //variable menu
-int choixmenu=0;
+    int choixmenu=0;
 
 //création buffer
 
-page=create_bitmap(800,600);
+    page=create_bitmap(1000,750);
     clear_bitmap(page);
 
 
@@ -39,9 +39,16 @@ page=create_bitmap(800,600);
     /// Le nom du répertoire où se trouvent les images à charger
     grman::set_pictures_path("pics");
 
+
+
     /// Un exemple de graphe
+    std::string nom_FIC;
+    nom_FIC = "graphe_7S.txt";
     Graph g;
     //g.graphe2();
+
+
+
 
 
     /// Vous gardez la main sur la "boucle de jeu"
@@ -49,20 +56,37 @@ page=create_bitmap(800,600);
     while ( !key[KEY_ESC] )
     {
 
+         while (choixmenu==0)
+    {
+
+        chargermenu(menuf,menuc,page,&choixmenu,nom_FIC);
+        if (choixmenu==1)
+        {
+            g.graph(nom_FIC);
+        }
+        if (choixmenu==2)
+        {
+            nom_FIC="graphe_13S.txt";
+            g.graph(nom_FIC);
+        }
+
+
+
+// AFFICHAGE DU BUFFER MIS A JOUR A L'ECRAN
+        blit(page,screen,0,0,0,0,SCREEN_W,SCREEN_H);
+    }
+
 
 //    show_mouse(screen);
 
-        while (choixmenu!=1)
-        {
-
-            chargermenu(menuf,menuc,page,&choixmenu);
 
 
-        }
 
-        // AFFICHAGE DU BUFFER MIS A JOUR A L'ECRAN
-            blit(page,screen,0,0,0,0,SCREEN_W,SCREEN_H);
-            /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
+        /// sauvegarde
+        g.save(nom_FIC);
+
+        /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
+
         g.update();
 
         /// Mise à jour générale (clavier/souris/buffer etc...)

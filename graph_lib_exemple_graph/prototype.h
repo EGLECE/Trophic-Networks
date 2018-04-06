@@ -1,7 +1,8 @@
 #ifndef PROTOTYPE_H_INCLUDED
 #define PROTOTYPE_H_INCLUDED
+#include "iostream"
 
-void chargermenu(BITMAP * menuc, BITMAP * menuf, BITMAP * page,int* choixmenu);
+int chargermenu(BITMAP * menuc, BITMAP * menuf, BITMAP * page,int* choixmenu,std::string nom_FIC);
 
 
 

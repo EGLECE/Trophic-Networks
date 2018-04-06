@@ -152,38 +152,12 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
 }
 
 
-/// Méthode spéciale qui construit un graphe arbitraire (démo)
-/// Cette méthode est à enlever et remplacer par un système
-/// de chargement de fichiers par exemple.
-/// Bien sûr on ne veut pas que vos graphes soient construits
-/// "à la main" dans le code comme ça.
-void Graph::graphe1()
+/// Méthode qui construit nos graphes avec une lecture fichier
+void Graph::graph( std::string nom_FIC)
 {
     m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
     // La ligne précédente est en gros équivalente à :
     // m_interface = new GraphInterface(50, 0, 750, 600);
-
-    /// Les sommets doivent être définis avant les arcs
-    // Ajouter le sommet d'indice 0 de valeur 30 en x=200 et y=100 avec l'image clown1.jpg etc...
-    /*add_interfaced_vertex(0, 60.0, 200, 400, "crevettes.bmp");
-    add_interfaced_vertex(1, 60.0, 400, 100, "manchot.bmp");
-    add_interfaced_vertex(2,  50.0, 200, 300, "orque.bmp");
-    add_interfaced_vertex(3,  0.0, 400, 300, "phoque.bmp");
-    add_interfaced_vertex(4,  100.0, 600, 300, "poissons.bmp");
-    add_interfaced_vertex(5,  0.0, 100, 500, "baleine.bmp");
-    add_interfaced_vertex(6,  0.0, 300, 500, "phytoplancton.bmp");*/
-
-    /// Les arcs doivent être définis entre des sommets qui existent !
-    // AJouter l'arc d'indice 0, allant du sommet 1 au sommet 2 de poids 50 etc...
-    /*add_interfaced_edge(0, 6, 0, 50.0);
-    add_interfaced_edge(1, 0, 4, 50.0);
-    add_interfaced_edge(2, 0, 1, 75.0);
-    add_interfaced_edge(3, 0, 3, 25.0);
-    add_interfaced_edge(4, 0, 5, 25.0);
-    add_interfaced_edge(5, 4, 5, 25.0);
-    add_interfaced_edge(6, 4, 3, 0.0);
-    add_interfaced_edge(7, 1, 3, 100.0);
-    add_interfaced_edge(8, 3, 2, 20.0);*/
 
     //Variables où l'ont stocke les données du fichier
     int nbArete;
@@ -196,18 +170,17 @@ void Graph::graphe1()
     float population;
     int x;
     int y;
-    std::string nomFichier;
+    std::string nom_image;
 
-    std::ifstream fic("graphe_13S.txt");
-
+    std::ifstream fic(nom_FIC, std::ios::in);
 
     if(fic)
     {
             fic >> nbSommet;
             for(int i = 0; i < nbSommet; i++)
             {
-                fic >> numeroSommet >> population >> x >> y >> nomFichier;
-                add_interfaced_vertex(numeroSommet,population,x,y,nomFichier);
+                fic >> numeroSommet >> population >> x >> y >> nom_image;
+                add_interfaced_vertex(numeroSommet,population,x,y,nom_image);
             }
             fic >> nbArete;
             for(int i = 0; i < nbArete; i++)
@@ -224,48 +197,34 @@ void Graph::graphe1()
     fic.close();
 
 }
-void Graph::graphe2()
+
+/// methode qui sauvegarde notre graphe
+void Graph::save( std::string nom_fic)
 {
-    m_interface = std::make_shared<GraphInterface>(50, 0, 1024, 768);
+    std::ofstream fichier(nom_fic, std::ios::out);
 
-    int nbArete;
-    int numeroArete;
-    int sommetA;
-    int sommetB;
-    float poids;
-    int nbSommet;
-    int numeroSommet;
-    float population;
-    int x;
-    int y;
-    std::string nomFichier;
+    fichier<< m_vertices.size();
+    fichier<< std::endl;
 
-    std::ifstream fic("graphe_7S.txt");
-
-    if(fic)
+    for(int i=0; i<m_vertices.size(); i++)
     {
-            fic >> nbSommet;
-            for(int i = 0; i < nbSommet; i++)
-            {
-                fic >> numeroSommet >> population >> x >> y >> nomFichier;
-                add_interfaced_vertex(numeroSommet,population,x,y,nomFichier);
-            }
-            fic >> nbArete;
-            for(int i = 0; i < nbArete; i++)
-            {
-                fic >> numeroArete >> sommetA >> sommetB >> poids;
-                add_interfaced_edge(numeroArete,sommetA,sommetB,poids);
-            }
+        fichier << i << " ";
+        fichier << m_vertices[i].m_value << " ";
+        fichier << m_vertices[i].m_interface -> m_top_box.get_posx()<< " ";
+        fichier << m_vertices[i].m_interface -> m_top_box.get_posy()<< " ";
+        fichier << m_vertices[i].m_interface -> m_img.getpic_name ()<< " ";
+        fichier << std::endl;
     }
-    else
+    fichier << m_edges.size();
+    fichier<< std::endl;
+
+    for (int j=0; j<m_edges.size (); j++)
     {
-        std::cerr << "Erreur dans l'ouverture du fichier.";
+        fichier << j << " " << m_edges[j].m_from << " " << m_edges[j].m_to << " " << m_edges[j].m_weight;
+        fichier << std::endl;
     }
-
-    fic.close();
-
+    fichier.close();
 }
-
 
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
 void Graph::update()
@@ -323,5 +282,9 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
     EdgeInterface *ei = new EdgeInterface(m_vertices[id_vert1], m_vertices[id_vert2]);
     m_interface->m_main_box.add_child(ei->m_top_edge);
     m_edges[idx] = Edge(weight, ei);
-}
+    m_edges[idx].m_from = id_vert1;
+    m_edges[idx].m_to = id_vert2;
 
+    m_vertices[id_vert1].m_out.push_back(idx);
+    m_vertices[id_vert2].m_in.push_back(idx);
+}

@@ -111,10 +111,10 @@
 	<iostream>
 	"graph.h"
 
-1522936423 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\graph.cpp
+1523019251 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\graph.cpp
 	"graph.h"
 
-1522862898 c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\graph.h
+1523020180 c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\graph.h
 	<vector>
 	<map>
 	<string>
@@ -134,7 +134,7 @@
 1522575424 c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\grman\coords.h
 	<cmath>
 
-1522636616 c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\grman\widget.h
+1523019557 c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\grman\widget.h
 	"grman.h"
 	<iostream>
 	<string>
@@ -145,7 +145,7 @@
 1522575069 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\grman\coords.cpp
 	"coords.h"
 
-1522943825 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\grman\grman.cpp
+1523018243 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\grman\grman.cpp
 	<cmath>
 	<unordered_map>
 	<unordered_set>
@@ -162,13 +162,15 @@
 1522636919 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\grman\widget.cpp
 	"widget.h"
 
-1523008575 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\menu.cpp
+1523021845 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\menu.cpp
 	<allegro.h>
 	"prototype.h"
+	<iostream>
 
-1522935958 c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\prototype.h
+1523021647 c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\prototype.h
+	"iostream"
 
-1523008359 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\main.cpp
+1523021887 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\main.cpp
 	"grman/grman.h"
 	<iostream>
 	<allegro.h>

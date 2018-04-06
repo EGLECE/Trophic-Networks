@@ -300,13 +300,13 @@ class Graph
         void add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name="", int pic_idx=0 );
         void add_interfaced_edge(int idx, int vert1, int vert2, double weight=0);
 
-        /// Méthode spéciale qui construit un graphe arbitraire (démo)
-        /// Voir implémentation dans le .cpp
-        /// Cette méthode est à enlever et remplacer par un système
-        /// de chargement de fichiers par exemple.
-        void graphe1();
-        void graphe2();
-        void graphe3();
+
+        /// chargement des fichiers pour créer les graphes
+       void graph(std::string nom_FIC);
+
+       ///sauvegarde
+       void save(std::string nom_fic);
+
 
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface

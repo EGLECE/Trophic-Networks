@@ -331,6 +331,8 @@ class WidgetImage : public Widget
         WidgetImage(std::string pic_name="") : m_pic_name(pic_name) { m_margin=m_border=m_padding=0; reframe(); }
         virtual void draw();
 
+
+
         virtual void reframe();
         void set_pic_name(std::string pic_name) { m_pic_name = pic_name; reframe(); }
 
@@ -338,6 +340,7 @@ class WidgetImage : public Widget
         void set_animate_tempo(int tempo) { m_animate_tempo = tempo; }
 
         void set_pic_idx(int pic_idx) { m_pic_idx=pic_idx; }
+        std::string getpic_name() {return m_pic_name;}
 };
 
 
