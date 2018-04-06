@@ -1,0 +1,178 @@
+# depslib dependency file v1.0
+1522861124 source:c:\users\aston\onedrive\documents\informatique ing2\projet 2\graph_lib_v1\graph_lib_exemple_graph\graph.cpp
+	"graph.h"
+
+1522850207 c:\users\aston\onedrive\documents\informatique ing2\projet 2\graph_lib_v1\graph_lib_exemple_graph\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	<fstream>
+	"grman/grman.h"
+
+1522539041 c:\users\aston\onedrive\documents\informatique ing2\projet 2\graph_lib_v1\graph_lib_exemple_graph\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1509222372 c:\users\aston\onedrive\documents\informatique ing2\projet 2\graph_lib_v1\graph_lib_exemple_graph\grman\grman_couleurs.h
+
+1522575424 c:\users\aston\onedrive\documents\informatique ing2\projet 2\graph_lib_v1\graph_lib_exemple_graph\grman\coords.h
+	<cmath>
+
+1522636616 c:\users\aston\onedrive\documents\informatique ing2\projet 2\graph_lib_v1\graph_lib_exemple_graph\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522575069 source:c:\users\aston\onedrive\documents\informatique ing2\projet 2\graph_lib_v1\graph_lib_exemple_graph\grman\coords.cpp
+	"coords.h"
+
+1522515823 source:c:\users\aston\onedrive\documents\informatique ing2\projet 2\graph_lib_v1\graph_lib_exemple_graph\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522636919 source:c:\users\aston\onedrive\documents\informatique ing2\projet 2\graph_lib_v1\graph_lib_exemple_graph\grman\widget.cpp
+	"widget.h"
+
+1522657075 source:c:\users\aston\onedrive\documents\informatique ing2\projet 2\graph_lib_v1\graph_lib_exemple_graph\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1522929766 source:c:\users\aston\onedrive\documents\informatique ing2\projet 2\trophic-networks\graph_lib_v1\graph_lib_exemple_graph\graph.cpp
+	"graph.h"
+
+1522862898 c:\users\aston\onedrive\documents\informatique ing2\projet 2\trophic-networks\graph_lib_v1\graph_lib_exemple_graph\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	<fstream>
+	"grman/grman.h"
+
+1522539041 c:\users\aston\onedrive\documents\informatique ing2\projet 2\trophic-networks\graph_lib_v1\graph_lib_exemple_graph\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1509222372 c:\users\aston\onedrive\documents\informatique ing2\projet 2\trophic-networks\graph_lib_v1\graph_lib_exemple_graph\grman\grman_couleurs.h
+
+1522575424 c:\users\aston\onedrive\documents\informatique ing2\projet 2\trophic-networks\graph_lib_v1\graph_lib_exemple_graph\grman\coords.h
+	<cmath>
+
+1522636616 c:\users\aston\onedrive\documents\informatique ing2\projet 2\trophic-networks\graph_lib_v1\graph_lib_exemple_graph\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522575069 source:c:\users\aston\onedrive\documents\informatique ing2\projet 2\trophic-networks\graph_lib_v1\graph_lib_exemple_graph\grman\coords.cpp
+	"coords.h"
+
+1522515823 source:c:\users\aston\onedrive\documents\informatique ing2\projet 2\trophic-networks\graph_lib_v1\graph_lib_exemple_graph\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522636919 source:c:\users\aston\onedrive\documents\informatique ing2\projet 2\trophic-networks\graph_lib_v1\graph_lib_exemple_graph\grman\widget.cpp
+	"widget.h"
+
+1522928961 source:c:\users\aston\onedrive\documents\informatique ing2\projet 2\trophic-networks\graph_lib_v1\graph_lib_exemple_graph\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1522936423 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\graph.cpp
+	"graph.h"
+
+1522862898 c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	<fstream>
+	"grman/grman.h"
+
+1522941713 c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1509222372 c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\grman\grman_couleurs.h
+
+1522575424 c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\grman\coords.h
+	<cmath>
+
+1522636616 c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522575069 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\grman\coords.cpp
+	"coords.h"
+
+1522943825 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522636919 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\grman\widget.cpp
+	"widget.h"
+
+1523008575 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\menu.cpp
+	<allegro.h>
+	"prototype.h"
+
+1522935958 c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\prototype.h
+
+1523008359 source:c:\users\egallais\desktop\trophic-networks\graph_lib_exemple_graph\main.cpp
+	"grman/grman.h"
+	<iostream>
+	<allegro.h>
+	"prototype.h"
+	<stdio.h>
+	"graph.h"
+
