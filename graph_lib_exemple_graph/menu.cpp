@@ -3,7 +3,7 @@
 #include <iostream>
 
 
-int chargermenu (BITMAP * menuc, BITMAP * menuf, BITMAP * page,int *choixmenu, std::string nom_FIC)
+int chargermenu (BITMAP * menuc, BITMAP * menuf, BITMAP * page,int* choixmenu, std::string nom_FIC)
 {
     int couleurcase = 0;
 

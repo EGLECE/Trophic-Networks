@@ -56,6 +56,8 @@ int main()
     while ( !key[KEY_ESC] )
     {
 
+
+
          while (choixmenu==0)
     {
 
@@ -76,6 +78,10 @@ int main()
         blit(page,screen,0,0,0,0,SCREEN_W,SCREEN_H);
     }
 
+    ///retour menu
+        g.retour(&choixmenu);
+
+
 
 //    show_mouse(screen);
 
@@ -84,6 +90,8 @@ int main()
 
         /// sauvegarde
         g.save(nom_FIC);
+
+
 
         /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
 

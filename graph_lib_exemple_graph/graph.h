@@ -1,3 +1,4 @@
+
 #ifndef GRAPH_H_INCLUDED
 #define GRAPH_H_INCLUDED
 
@@ -263,6 +264,12 @@ class GraphInterface
 
         /// Dans cette boite seront ajoutés des boutons de contrôle etc...
         grman::WidgetBox m_tool_box;
+        /// Bouton ajout sommet
+        grman::WidgetButton m_button_save;
+        grman::WidgetButton m_button_retour_menu;
+        grman::WidgetText m_texte_save;
+        grman::WidgetText m_texte_retour;
+
 
 
         // A compléter éventuellement par des widgets de décoration ou
@@ -300,12 +307,13 @@ class Graph
         void add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name="", int pic_idx=0 );
         void add_interfaced_edge(int idx, int vert1, int vert2, double weight=0);
 
+        /// chargement des fichier pour creer les graphes.
+        void graph(std::string nom_FIC);
 
-        /// chargement des fichiers pour créer les graphes
-       void graph(std::string nom_FIC);
+        /// sauvegarde du graphe
+        void save(std::string nom_fic);
 
-       ///sauvegarde
-       void save(std::string nom_fic);
+        int retour(int *choixmenu);
 
 
 
@@ -315,3 +323,4 @@ class Graph
 
 
 #endif // GRAPH_H_INCLUDED
+

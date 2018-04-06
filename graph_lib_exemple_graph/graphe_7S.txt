@@ -1,11 +1,11 @@
 7
-0 30 30 289 crevettes.bmp 
-1 60 343 442 manchot.bmp 
-2 50 616 -2 orque.bmp 
-3 67.1429 238 79 phoque.bmp 
-4 100 660 172 poissons.bmp 
-5 0 649 583 baleine.bmp 
-6 0 66 473 phytoplancton.bmp 
+0 30 26 285 crevettes.bmp 
+1 60 339 438 manchot.bmp 
+2 50 612 -6 orque.bmp 
+3 67.1429 234 75 phoque.bmp 
+4 100 656 168 poissons.bmp 
+5 0 645 579 baleine.bmp 
+6 0 62 469 phytoplancton.bmp 
 9
 0 6 0 50
 1 0 4 50

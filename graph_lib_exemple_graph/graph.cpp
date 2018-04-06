@@ -15,7 +15,7 @@ VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name, in
 
     // Le slider de réglage de valeur
     m_top_box.add_child( m_slider_value );
-    m_slider_value.set_range(0.0 , 100.0); // Valeurs arbitraires, à adapter...
+    m_slider_value.set_range(0.0, 100.0);  // Valeurs arbitraires, à adapter...
     m_slider_value.set_dim(20,80);
     m_slider_value.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
 
@@ -93,7 +93,7 @@ EdgeInterface::EdgeInterface(Vertex& from, Vertex& to)
 
     // Le slider de réglage de valeur
     m_box_edge.add_child( m_slider_weight );
-    m_slider_weight.set_range(0.0 , 100.0); // Valeurs arbitraires, à adapter...
+    m_slider_weight.set_range(0.0, 100.0);  // Valeurs arbitraires, à adapter...
     m_slider_weight.set_dim(16,40);
     m_slider_weight.set_gravity_y(grman::GravityY::Up);
 
@@ -149,6 +149,26 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_main_box.set_dim(908,720);
     m_main_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
     m_main_box.set_bg_color(BLANCJAUNE);
+
+    m_top_box.add_child(m_button_save);
+    m_button_save.set_dim(78,75);
+    m_button_save.set_pos(0,0);
+    m_button_save.set_bg_color(ROUGE);
+
+    m_top_box.add_child(m_texte_save);
+    m_texte_save.set_message("SAVE");
+    m_texte_save.set_pos(30,35);
+
+    m_top_box.add_child(m_button_retour_menu);
+    m_button_retour_menu.set_dim(78,75);
+    m_button_retour_menu.set_pos(0,76);
+    m_button_retour_menu.set_bg_color(VERT);
+
+    m_top_box.add_child(m_texte_retour);
+    m_texte_retour.set_message("RETOUR");
+    m_texte_retour.set_pos(20,110);
+
+
 }
 
 
@@ -176,18 +196,18 @@ void Graph::graph( std::string nom_FIC)
 
     if(fic)
     {
-            fic >> nbSommet;
-            for(int i = 0; i < nbSommet; i++)
-            {
-                fic >> numeroSommet >> population >> x >> y >> nom_image;
-                add_interfaced_vertex(numeroSommet,population,x,y,nom_image);
-            }
-            fic >> nbArete;
-            for(int i = 0; i < nbArete; i++)
-            {
-                fic >> numeroArete >> sommetA >> sommetB >> poids;
-                add_interfaced_edge(numeroArete,sommetA,sommetB,poids);
-            }
+        fic >> nbSommet;
+        for(int i = 0; i < nbSommet; i++)
+        {
+            fic >> numeroSommet >> population >> x >> y >> nom_image;
+            add_interfaced_vertex(numeroSommet,population,x,y,nom_image);
+        }
+        fic >> nbArete;
+        for(int i = 0; i < nbArete; i++)
+        {
+            fic >> numeroArete >> sommetA >> sommetB >> poids;
+            add_interfaced_edge(numeroArete,sommetA,sommetB,poids);
+        }
     }
     else
     {
@@ -201,29 +221,46 @@ void Graph::graph( std::string nom_FIC)
 /// methode qui sauvegarde notre graphe
 void Graph::save( std::string nom_fic)
 {
-    std::ofstream fichier(nom_fic, std::ios::out);
 
-    fichier<< m_vertices.size();
-    fichier<< std::endl;
-
-    for(int i=0; i<m_vertices.size(); i++)
+    if(m_interface->m_button_save.clicked())
     {
-        fichier << i << " ";
-        fichier << m_vertices[i].m_value << " ";
-        fichier << m_vertices[i].m_interface -> m_top_box.get_posx()<< " ";
-        fichier << m_vertices[i].m_interface -> m_top_box.get_posy()<< " ";
-        fichier << m_vertices[i].m_interface -> m_img.getpic_name ()<< " ";
-        fichier << std::endl;
-    }
-    fichier << m_edges.size();
-    fichier<< std::endl;
+        std::ofstream fichier(nom_fic, std::ios::out);
 
-    for (int j=0; j<m_edges.size (); j++)
-    {
-        fichier << j << " " << m_edges[j].m_from << " " << m_edges[j].m_to << " " << m_edges[j].m_weight;
-        fichier << std::endl;
+        fichier<< m_vertices.size();
+        fichier<< std::endl;
+
+        for(int i=0; i<m_vertices.size(); i++)
+        {
+            fichier << i << " ";
+            fichier << m_vertices[i].m_value << " ";
+            fichier << m_vertices[i].m_interface -> m_top_box.get_posx()<< " ";
+            fichier << m_vertices[i].m_interface -> m_top_box.get_posy()<< " ";
+            fichier << m_vertices[i].m_interface -> m_img.getpic_name ()<< " ";
+            fichier << std::endl;
+        }
+        fichier << m_edges.size();
+        fichier<< std::endl;
+
+        for (int j=0; j<m_edges.size (); j++)
+        {
+            fichier << j << " " << m_edges[j].m_from << " " << m_edges[j].m_to << " " << m_edges[j].m_weight;
+            fichier << std::endl;
+        }
+        fichier.close();
+
+        std::cout << "ca marche fdp";
     }
-    fichier.close();
+
+}
+
+int Graph::retour(int *choixmenu)
+{
+    if(m_interface->m_button_retour_menu.clicked())
+    {
+        *choixmenu=0;
+        return *choixmenu;
+
+    }
 }
 
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
